@@ -1,9 +1,4 @@
 
-function validEmail(email) { // see:
-  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  return re.test(email);
-}
-
 function validateHuman(honeypot) {
   if (honeypot) {  //if hidden form filled up
     console.log("Robot Detected!");
@@ -68,7 +63,9 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
     return false;
   }
   */
-
+  if(!document.getElementById('gform').checkValidity() )  { // if all form is not valid  
+    return false;
+  } else {
     var url = event.target.action;  //
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
@@ -87,6 +84,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
     }).join('&')
     xhr.send(encoded);
   }
+}
 function loaded() {
   console.log('contact form submission handler loaded successfully');
   // bind to the submit event of our form
