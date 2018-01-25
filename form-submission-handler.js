@@ -69,10 +69,6 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
   }
   */
 
-  if( !validEmail(data.email) ) {   // if email is not valid show error
-    document.getElementById('email-invalid').style.display = 'block';
-    return false;
-  } else {
     var url = event.target.action;  //
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
@@ -91,7 +87,6 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
     }).join('&')
     xhr.send(encoded);
   }
-}
 function loaded() {
   console.log('contact form submission handler loaded successfully');
   // bind to the submit event of our form
